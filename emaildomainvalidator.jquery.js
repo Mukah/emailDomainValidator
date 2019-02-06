@@ -4,7 +4,7 @@
 (function($) {
   $.fn.emailDomainValidator = function(domainlist, allow, success, failed) {
     domainlist = domainlist || [];
-    allow = allow || true;
+    allow = (allow === undefined) ? true : allow;
     success = success || function() { };
     failed = failed || function() { };
 

@@ -2,8 +2,9 @@
 // https://github.com/Mukah/emaildomainvalidator
 
 (function($) {
-  $.fn.emailDomainValidator = function(whitelist, success, failed) {
+  $.fn.emailDomainValidator = function(whitelist, blacklist, success, failed) {
     whitelist = whitelist || [];
+    blacklist = blacklist || [];
 
     $(this).change(function() {
       let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -16,7 +17,7 @@
         if(regex.test(email)) {
           $(this)[0].setCustomValidity('');
 
-          if(whitelist.includes(domain)) {
+          if(whitelist.includes(domain) && !blacklist.includes(domain)) {
             $(this)[0].setCustomValidity('');
             success();  
           } else {

@@ -1,21 +1,21 @@
 /* Made by Samuel Wagner */
 // https://github.com/Mukah/emaildomainvalidator
 
-jQuery(function($) {
+(function($){
   $.fn.emailDomainValidator = function(whitelist, success, failed) {
     whitelist = whitelist || [];
-    
+
     $(this).change(function() {
       let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       let email = $(this).val();
       let domain = email.replace(/.*@/, '');
-      
+
       if(email !== '') {
         $(this)[0].setCustomValidity('');
-        
+
         if(regex.test(email)) {
           $(this)[0].setCustomValidity('');
-          
+
           if(whitelist.includes(domain)) {
             $(this)[0].setCustomValidity('');
             success();  
@@ -37,4 +37,4 @@ jQuery(function($) {
       }
     });
   };
-});
+}(jQuery));

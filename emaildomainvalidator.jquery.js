@@ -2,6 +2,8 @@
 // https://github.com/Mukah/emaildomainvalidator
 
 (function($) {
+  'use strict';
+  
   $.fn.emailDomainValidator = function(whitelist, success, failed) {
     whitelist = whitelist || [];
 

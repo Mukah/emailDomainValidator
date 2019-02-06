@@ -7,9 +7,9 @@ Library to validate email domain in client-side email fields with jQuery
 $('.email-validator').emailDomainValidator([
   'gmail.com'
 ], function() {
-  console.log('Deu bom');
+  console.log('success');
 }, function() {
-  console.log('Deu erro');
+  console.log('failed');
 });
 ```
 
